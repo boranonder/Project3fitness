@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".introAppActivity">
+
+    <TextView
+        android:id="@+id/WCText"
+        android:layout_width="354dp"
+        android:layout_height="62dp"
+        android:text="Welcome!"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="325dp"
+        android:layout_height="80dp"
+        android:text="What are you doing today?"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <ImageButton
+        android:id="@+id/BackButton"
+        android:layout_width="275dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.358"
+        app:srcCompat="@drawable/backgym" />
+
+    <TextView
+        android:id="@+id/BackButtonText"
+        android:layout_width="160dp"
+        android:layout_height="66dp"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/BackButton"
+        app:layout_constraintEnd_toEndOf="@+id/BackButton"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="@+id/BackButton"
+        app:layout_constraintTop_toTopOf="@+id/BackButton"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <ImageButton
+        android:id="@+id/ShoulderButton"
+        android:layout_width="275dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.519"
+        app:srcCompat="@drawable/shoulderimage" />
+
+    <TextView
+        android:id="@+id/ShoulderButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shoulder"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ShoulderButton"
+        app:layout_constraintEnd_toEndOf="@+id/ShoulderButton"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="@+id/ShoulderButton"
+        app:layout_constraintTop_toTopOf="@+id/ShoulderButton"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <ImageButton
+        android:id="@+id/ChestButton"
+        android:layout_width="275dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.677"
+        app:srcCompat="@drawable/chestimage" />
+
+    <ImageButton
+        android:id="@+id/ArmButton"
+        android:layout_width="275dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832"
+        app:srcCompat="@drawable/armimage" />
+
+    <TextView
+        android:id="@+id/ChestButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chest"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ChestButton"
+        app:layout_constraintEnd_toEndOf="@+id/ChestButton"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="@+id/ChestButton"
+        app:layout_constraintTop_toTopOf="@+id/ChestButton" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arm"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ArmButton"
+        app:layout_constraintEnd_toEndOf="@+id/ArmButton"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="@+id/ArmButton"
+        app:layout_constraintTop_toTopOf="@+id/ArmButton"
+        app:layout_constraintVertical_bias="0.461" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
