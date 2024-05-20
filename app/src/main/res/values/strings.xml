@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FitnessApp</string>
+    <string name="your_bmi">Your BMI: %1$.2f</string>
+    <string name="basal_metabolic_rate">Basal Metabolic Rate: %1$.2f</string>
 </resources>
