@@ -2,11 +2,13 @@ package com.example.fitnessapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class CalculatedActivity extends AppCompatActivity {
 
@@ -14,8 +16,7 @@ public class CalculatedActivity extends AppCompatActivity {
     TextView bmiTextView;
     Button dietProgButton;
 
-    private double bmi;
-    private double bmr;
+    private static final String TAG = "CalculatedActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +29,16 @@ public class CalculatedActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            bmi = intent.getDoubleExtra("bmi", 0);
-            bmr = intent.getDoubleExtra("bmr", 0);
-            bmiTextView.setText(String.format("Your BMI: %.2f", bmi));
-            bmrTextView.setText(String.format("Your Basal Metabolic Rate is: %.2f", bmr));
-        }
+            double bmi = intent.getDoubleExtra("bmi", 0);
+            double bmr = intent.getDoubleExtra("bmr", 0);
+            bmiTextView.setText(String.format(Locale.getDefault(), "Your BMI: %.2f", bmi));
+            bmrTextView.setText(String.format(Locale.getDefault(), "Your Basal Metabolic Rate is: %.2f", bmr));
 
-        dietProgButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDietPlan();
-            }
-        });
+            dietProgButton.setOnClickListener(view -> openDietPlan(bmi));
+        }
     }
 
-    private void openDietPlan() {
+    private void openDietPlan(double bmi) {
         Intent intent = new Intent(CalculatedActivity.this, DietPlanActivity.class);
 
         int nutritionPlanResId = -1;
@@ -58,10 +54,7 @@ public class CalculatedActivity extends AppCompatActivity {
             intent.putExtra("nutritionPlanResId", nutritionPlanResId);
             startActivity(intent);
         } else {
-
+            Log.e(TAG, "No valid nutrition plan found for BMI: " + bmi);
         }
     }
 }
-
-
-

@@ -34,11 +34,12 @@
         app:layout_constraintVertical_bias="0.401" />
 
     <Button
-        android:id="@+id/ExcersizesButton"
+        android:id="@+id/ExercisesButton"
         android:layout_width="180dp"
         android:layout_height="85dp"
-        android:onClick="ExcersizesButtonAct"
-        android:text="Excersizes"
+        android:backgroundTint="#0A0B0B"
+        android:onClick="ExercisesButtonAct"
+        android:text="Exercises"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +52,7 @@
         android:id="@+id/NutritionButton"
         android:layout_width="180dp"
         android:layout_height="85dp"
+        android:backgroundTint="#0B0B0B"
         android:onClick="RegisterButtonAct"
         android:text="Nutrition Calculation"
         android:textSize="20sp"
@@ -60,5 +62,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.769" />
+
+    <Button
+        android:id="@+id/ViewDataButton"
+        android:layout_width="130dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#009688"
+        android:text="View Data"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NutritionButton"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
