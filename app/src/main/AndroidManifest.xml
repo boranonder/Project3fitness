@@ -30,6 +30,7 @@
         <activity
             android:name=".NutritionCalcActivity"
             android:exported="false" />
+        <activity android:name=".DietPlanActivity" />
         <activity
             android:name=".introAppActivity"
             android:exported="false" />

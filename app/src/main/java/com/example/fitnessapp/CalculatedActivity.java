@@ -2,63 +2,59 @@ package com.example.fitnessapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Locale;
 
 public class CalculatedActivity extends AppCompatActivity {
 
     TextView bmrTextView;
     TextView bmiTextView;
-    private TextView resultText;
-    private ImageView nutritionPlanImage;
     Button dietProgButton;
+
+    private static final String TAG = "CalculatedActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculated);
+
         bmiTextView = findViewById(R.id.BMItext);
         bmrTextView = findViewById(R.id.BMRtext);
         dietProgButton = findViewById(R.id.dietProgButton);
+
         Intent intent = getIntent();
         if (intent != null) {
             double bmi = intent.getDoubleExtra("bmi", 0);
             double bmr = intent.getDoubleExtra("bmr", 0);
-            bmiTextView.setText(String.format("Your BMI: %.2f", bmi));
-            bmrTextView.setText(String.format("Your Basal Metabolic Rate is: %.2f", bmr));
-            dietProgButton.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            displayResult(bmi,bmr);
-                        }
-                    });
+            bmiTextView.setText(String.format(Locale.getDefault(), "Your BMI: %.2f", bmi));
+            bmrTextView.setText(String.format(Locale.getDefault(), "Your Basal Metabolic Rate is: %.2f", bmr));
 
+            dietProgButton.setOnClickListener(view -> openDietPlan(bmi));
         }
-
     }
 
-    private void displayResult(double bmi, double bmr) {
-        String bmiLabel;
-        int nutritionPlanResId;
+    private void openDietPlan(double bmi) {
+        Intent intent = new Intent(CalculatedActivity.this, DietPlanActivity.class);
 
+        int nutritionPlanResId = -1;
         if (bmi < 18.5) {
-            bmiLabel = "Underweight";
-            nutritionPlanResId = R.drawable.underweight_plan;
+            nutritionPlanResId = R.drawable.underweight_diet_plan;
         } else if (bmi < 24.9) {
-            bmiLabel = "Normal weight";
-            nutritionPlanResId = R.drawable.normal_weight_plan;
-        } else {
-            bmiLabel = "Overweight";
-            nutritionPlanResId = R.drawable.overweight_plan;
+            nutritionPlanResId = R.drawable.normal_weight_diet_plan;
+        } else if (bmi >= 24.9) {
+            nutritionPlanResId = R.drawable.overweight_diet_plan;
         }
 
-        resultText.setText(String.format("BMI: %.1f\n%s\n\nBMR: %.1f kcal/day", bmi, bmiLabel, bmr));
-        nutritionPlanImage.setImageResource(nutritionPlanResId);
+        if (nutritionPlanResId != -1) {
+            intent.putExtra("nutritionPlanResId", nutritionPlanResId);
+            startActivity(intent);
+        } else {
+            Log.e(TAG, "No valid nutrition plan found for BMI: " + bmi);
+        }
     }
-
-
 }
